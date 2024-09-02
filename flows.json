@@ -1,0 +1,202 @@
+[
+    {
+        "id": "39ab679d85310139",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd4ee08211567b45",
+        "type": "cloudantplus",
+        "host": "https://8685b21f-dcdc-4864-a9bc-84e5121ccc12-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    },
+    {
+        "id": "d28ad395d4ebd2d0",
+        "type": "http in",
+        "z": "39ab679d85310139",
+        "name": "",
+        "url": "/nome",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 70,
+        "y": 180,
+        "wires": [
+            [
+                "bcd1b1323d668bb8"
+            ]
+        ]
+    },
+    {
+        "id": "24366bec9e5d3c41",
+        "type": "http response",
+        "z": "39ab679d85310139",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "47167833a9cb3efd",
+        "type": "http in",
+        "z": "39ab679d85310139",
+        "name": "",
+        "url": "/nome2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 70,
+        "y": 300,
+        "wires": [
+            [
+                "cc2810e02ad99848"
+            ]
+        ]
+    },
+    {
+        "id": "cc2810e02ad99848",
+        "type": "cloudantplus out",
+        "z": "39ab679d85310139",
+        "name": "",
+        "cloudant": "bd4ee08211567b45",
+        "database": "valneymaia",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "ce8e8f0008414af3"
+            ]
+        ]
+    },
+    {
+        "id": "ce8e8f0008414af3",
+        "type": "http response",
+        "z": "39ab679d85310139",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "bcd1b1323d668bb8",
+        "type": "cloudantplus in",
+        "z": "39ab679d85310139",
+        "name": "",
+        "cloudant": "bd4ee08211567b45",
+        "database": "valneymaia",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "24366bec9e5d3c41"
+            ]
+        ]
+    },
+    {
+        "id": "1fce9a2da59a8d5c",
+        "type": "http in",
+        "z": "39ab679d85310139",
+        "name": "",
+        "url": "/editar",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "5e5db86a6b00a5e6"
+            ]
+        ]
+    },
+    {
+        "id": "73a418a83c662202",
+        "type": "http response",
+        "z": "39ab679d85310139",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5e5db86a6b00a5e6",
+        "type": "cloudantplus out",
+        "z": "39ab679d85310139",
+        "name": "",
+        "cloudant": "bd4ee08211567b45",
+        "database": "valneymaia",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "73a418a83c662202"
+            ]
+        ]
+    },
+    {
+        "id": "afd8963d9422a24d",
+        "type": "cloudantplus out",
+        "z": "39ab679d85310139",
+        "name": "",
+        "cloudant": "bd4ee08211567b45",
+        "database": "valneymaia",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "8c01c59bb37fd7de"
+            ]
+        ]
+    },
+    {
+        "id": "c4245ca020b40d68",
+        "type": "http in",
+        "z": "39ab679d85310139",
+        "name": "",
+        "url": "/dell",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 540,
+        "wires": [
+            [
+                "afd8963d9422a24d"
+            ]
+        ]
+    },
+    {
+        "id": "8c01c59bb37fd7de",
+        "type": "http response",
+        "z": "39ab679d85310139",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 540,
+        "wires": []
+    }
+]
